@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايتنا معاً ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+            position: relative;
+        }
+
+        #firstCard {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px 20px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .heart-icon {
+            font-size: 45px;
+            color: #ff4757;
+            animation: pulse 1.5s infinite;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #ff6b81;
+            font-weight: 700;
+        }
+        .message-box {
+            max-height: 220px;
+            overflow-y: auto;
+            padding: 0 10px;
+            margin-bottom: 15px;
+            text-align: right;
+            scrollbar-width: thin;
+            scrollbar-color: #ff4757 rgba(255,255,255,0.1);
+        }
+        .message-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .message-box::-webkit-scrollbar-thumb {
+            background-color: #ff4757;
+            border-radius: 10px;
+        }
+        p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #f1f2f6;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.5);
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.8);
+        }
+
+        #datesRainContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 99;
+            overflow: hidden;
+        }
+
+        .falling-date {
+            position: absolute;
+            color: #ff6b81;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 12px rgba(255, 71, 87, 0.9);
+            white-space: nowrap;
+            animation: fallAnimation 2s linear forwards;
+        }
+
+        @keyframes fallAnimation {
+            0% {
+                top: -60px;
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                top: 105vh;
+                opacity: 0;
+                transform: scale(1.25);
+            }
+        }
+
+        #actionCard {
+            display: none;
+            opacity: 0;
+            text-align: center;
+            position: absolute;
+            z-index: 100;
+            transition: opacity 1s ease;
+        }
+
+        #secondCard {
+            display: none;
+            opacity: 0;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 107, 129, 0.5);
+            padding: 35px 25px;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(255, 71, 87, 0.4);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: absolute;
+            z-index: 101;
+            transition: opacity 1.5s ease;
+        }
+
+        .final-title {
+            font-size: 26px;
+            color: #ff4757;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .final-text {
+            font-size: 18px;
+            line-height: 2;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="firstCard">
+        <div class="heart-icon">❤️</div>
+        <h1>إلى أثمن ما أملك في حياتي..</h1>
+        
+        <div class="message-box">
+            <p>أنا آسف لو زعلتك في يوم، وآسف لو الفترة الأخيرة ما كناش قريبين لبعض بالقدر الكافي إن إحنا نقعد مثلاً 24 ساعة نتكلم.</p>
+            <p>عارف إن أنتِ عندك حياتك عايزة تعيشيها وأنا عندي حياتي عايز أعيشها، بس مش المذاكرة ولا حياة كل واحد فينا تخليه يبقى مشغول عن الثاني.</p>
+            <p>عاوز لما أعوزك أو لما تعوزيني نلاقي بعض، وعاوز نفضل سوا طول العمر. مش عاوزك تزعلي مني وأنا مش زعلان منك.</p>
+            <p>وعايز أقول لك إن أنا باحبك قوي والله العظيم، وربنا يخليك ليَّ وما يحرمنيش منك أبدًا.</p>
+            <p>مش عايزك تحطي بيننا الحدود اللي أنتِ حطاها دلوقتي.. مش عايزك تتعاملي في علاقتنا إن هي فترة وممكن تختفي، لأني بجد معتبرك بالنسبة لي حياة وجودك مهم جداً بالنسبة لي.</p>
+            <p>فأنا باحبك وما أقدرش أستغنى عنك.. ما تزعليش مني ❤️</p>
+        </div>
+
+        <button class="btn" onclick="startRainJourney()">ابدأ رحلة السنين ✨</button>
+    </div>
+
+    <div id="datesRainContainer"></div>
+
+    <div id="actionCard">
+        <button class="btn" onclick="revealFinalMessage()">دوس هنا ❤️</button>
+    </div>
+
+    <div id="secondCard">
+        <div class="heart-icon">💖</div>
+        <div class="final-title">30/10/2026 ✨</div>
+        <div class="final-text">
+            كل سنة وإحنا طيبين..<br>
+            يا رب نفضل طول العمر سوا وما ننحرمش من بعض أبداً..<br>
+            وإن شاء الله مش هتكون آخر سنة نحتفل بها مع بعض،<br>
+            وهنفضل طول عمرنا نحتفل بالتاريخ ده! ❤️
+        </div>
+    </div>
+
+    <script>
+        const dateList = [];
+        let startYear = 2023;
+        let startMonth = 10;
+
+        while (startYear < 2026 || (startYear === 2026 && startMonth <= 10)) {
+            let monthStr = startMonth < 10 ? '0' + startMonth : startMonth;
+            dateList.push(`30/${monthStr}/${startYear}`);
+            startMonth++;
+            if (startMonth > 12) {
+                startMonth = 1;
+                startYear++;
+            }
+        }
+
+        function startRainJourney() {
+            const firstCard = document.getElementById('firstCard');
+            const rainContainer = document.getElementById('datesRainContainer');
+            const actionCard = document.getElementById('actionCard');
+
+            firstCard.style.opacity = '0';
+            firstCard.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                firstCard.style.display = 'none';
+            }, 1000);
+
+            let delay = 0;
+            dateList.forEach((dateText) => {
+                setTimeout(() => {
+                    createFallingDate(dateText, rainContainer);
+                }, delay);
+                delay += 160;
+            });
+
+            setTimeout(() => {
+                actionCard.style.display = 'block';
+                setTimeout(() => {
+                    actionCard.style.opacity = '1';
+                }, 100);
+            }, delay + 2100);
+        }
+
+        function createFallingDate(text, container) {
+            const el = document.createElement('div');
+            el.className = 'falling-date';
+            el.innerText = text;
+            
+            const randomX = Math.random() * 82 + 8;
+            el.style.left = randomX + 'vw';
+            
+            container.appendChild(el);
+
+            setTimeout(() => {
+                el.remove();
+            }, 2100);
+        }
+
+        function revealFinalMessage() {
+            const actionCard = document.getElementById('actionCard');
+            const secondCard = document.getElementById('secondCard');
+
+            actionCard.style.opacity = '0';
+            setTimeout(() => {
+                actionCard.style.display = 'none';
+                secondCard.style.display = 'block';
+                setTimeout(() => {
+                    secondCard.style.opacity = '1';
+                }, 100);
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
